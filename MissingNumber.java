@@ -12,7 +12,7 @@ public class MissingNumber {
 			sum1 += arr[i];
 		}
 		
-		for(int i = 1; i<=arr.length; i++) {
+		for(int i = 0; i<=arr.length; i++) {
 			
 			sum2 += i;
 		}

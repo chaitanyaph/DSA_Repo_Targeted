@@ -7,18 +7,18 @@ public class FindMissAndRepeat {
     public static ArrayList<Integer> findMissingAndRepeating(int[] arr) {
         int n = arr.length;
 
-        // Create a hash array of size n+1 to store frequencies
+      
         int[] hash = new int[n + 1];
 
-        // Populate frequency map
+        
         for (int i = 0; i < arr.length; i++) {
-            hash[arr[i]]++;  // <- Make sure arr[i] is within [1, n]
+            
+        	hash[arr[i]]++;  
         }
 
         int missing = -1;
         int repeating = -1;
 
-        // Find missing and repeating
         for (int i = 1; i <= n; i++) {
             if (hash[i] == 0) {
                 missing = i;
