@@ -52,6 +52,21 @@ public class LinkedList {
 		}
 		return count;
 	}
+	
+	public static boolean searchElement(Node head, int key) {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			
+			if(temp.data == key) {
+				
+				return true;
+			}
+			temp = temp.next;
+		}
+		return false;
+	}
 
 	public static void main(String[] args) {
 		
@@ -65,6 +80,12 @@ public class LinkedList {
 		int findLengthLL = findLengthLL(converArrToLinkedList);
 		
 		System.out.println("The Length of LinkedList is : "+findLengthLL);
+		
+		boolean searchElement = searchElement(converArrToLinkedList,4);
+		
+		if(searchElement) {
+			System.out.println("The Element is Prsent.....");
+		}
 		
 	}
 
