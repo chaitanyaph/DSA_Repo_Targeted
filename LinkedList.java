@@ -39,6 +39,19 @@ public class LinkedList {
 		}
 		System.out.print("null");
 	}
+	
+	public static int findLengthLL(Node head) {
+		
+		Node temp = head;
+		int count = 0;
+		
+		while(temp != null) {
+			
+			count++;
+			temp = temp.next;
+		}
+		return count;
+	}
 
 	public static void main(String[] args) {
 		
@@ -47,6 +60,11 @@ public class LinkedList {
 		Node converArrToLinkedList = converArrToLinkedList(arr);
 		
 		IterateLL(converArrToLinkedList);
+		System.out.println();
+		
+		int findLengthLL = findLengthLL(converArrToLinkedList);
+		
+		System.out.println("The Length of LinkedList is : "+findLengthLL);
 		
 	}
 
