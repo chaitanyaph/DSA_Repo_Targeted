@@ -142,6 +142,14 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node insertAtHead(Node head, int value) {
+		
+		Node newnode = new Node(value);
+		newnode.next = head;
+		head = newnode;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -172,8 +180,12 @@ public class LinkedList {
 //		Node deleteByPosition = deleteByPosition(converArrToLinkedList, pos);
 //		IterateLL(deleteByPosition);
 		
-		Node deleteByValue = deleteByValue(converArrToLinkedList, 5);
-		IterateLL(deleteByValue);
+//		Node deleteByValue = deleteByValue(converArrToLinkedList, 5);
+//		IterateLL(deleteByValue);
+		
+		int value = 0;
+		Node insertAtHead = insertAtHead(converArrToLinkedList, value);
+		IterateLL(insertAtHead);
 		
 	}
 
