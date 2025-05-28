@@ -89,6 +89,16 @@ public class LinkedList {
 	
 	public static Node deleteByPosition(Node head, int position) {
 		
+		if(head == null) {
+			return null;
+		}
+		
+		if(position == 1) {
+			
+			head = head.next;
+			return head;
+		}
+		
 		Node temp = head;
 		Node previous = null;
 		int count = 0;
@@ -103,6 +113,30 @@ public class LinkedList {
 				break;
 			}
 			previous =  temp;
+			temp = temp.next;
+		}
+		return head;
+	}
+	
+	public static Node deleteByValue(Node head, int value) {
+		
+		if(head.data == value) {
+			
+			head = head.next;
+			return head;
+		}
+		
+		Node temp = head;
+		Node prev = null;
+		
+		while(temp != null) {
+			
+			if(temp.data == value) {
+				
+				prev.next = prev.next.next;
+				break;
+			}
+			prev = temp;
 			temp = temp.next;
 		}
 		return head;
@@ -134,9 +168,12 @@ public class LinkedList {
 //		Node deleteTail = deleteTail(converArrToLinkedList);
 //		IterateLL(deleteTail);
 		
-		int pos = 3;
-		Node deleteByPosition = deleteByPosition(converArrToLinkedList, pos);
-		IterateLL(deleteByPosition);
+//		int pos = 1;
+//		Node deleteByPosition = deleteByPosition(converArrToLinkedList, pos);
+//		IterateLL(deleteByPosition);
+		
+		Node deleteByValue = deleteByValue(converArrToLinkedList, 5);
+		IterateLL(deleteByValue);
 		
 	}
 
