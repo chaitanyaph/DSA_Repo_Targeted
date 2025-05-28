@@ -87,6 +87,27 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node deleteByPosition(Node head, int position) {
+		
+		Node temp = head;
+		Node previous = null;
+		int count = 0;
+		
+		while(temp != null) {
+			
+			count++;
+			
+			if(count == position) {
+				
+				previous.next = previous.next.next;
+				break;
+			}
+			previous =  temp;
+			temp = temp.next;
+		}
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -106,13 +127,16 @@ public class LinkedList {
 //			System.out.println("The Element is Prsent.....");
 //		}
 		
-		Node deleteHead = deleteHead(converArrToLinkedList);
-		IterateLL(deleteHead);
-		System.out.println();
+//		Node deleteHead = deleteHead(converArrToLinkedList);
+//		IterateLL(deleteHead);
+//		System.out.println();
+//		
+//		Node deleteTail = deleteTail(converArrToLinkedList);
+//		IterateLL(deleteTail);
 		
-		Node deleteTail = deleteTail(converArrToLinkedList);
-		IterateLL(deleteTail);
-		
+		int pos = 3;
+		Node deleteByPosition = deleteByPosition(converArrToLinkedList, pos);
+		IterateLL(deleteByPosition);
 		
 	}
 
