@@ -150,6 +150,24 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node insertAtTail(Node head, int value) {
+		
+		if(head == null || head.next == null) {
+			
+			return null;
+		}
+		
+		Node temp = head;
+		
+		while(temp.next != null) {
+			
+			temp = temp.next;
+		}
+		Node newnode = new Node(value);
+		temp.next = newnode;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -183,9 +201,13 @@ public class LinkedList {
 //		Node deleteByValue = deleteByValue(converArrToLinkedList, 5);
 //		IterateLL(deleteByValue);
 		
-		int value = 0;
-		Node insertAtHead = insertAtHead(converArrToLinkedList, value);
-		IterateLL(insertAtHead);
+//		int value = 0;
+//		Node insertAtHead = insertAtHead(converArrToLinkedList, value);
+//		IterateLL(insertAtHead);
+		
+		int value = 6;
+		Node insertAtTail = insertAtTail(converArrToLinkedList, value);
+		IterateLL(insertAtTail);
 		
 	}
 
