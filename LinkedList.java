@@ -67,7 +67,15 @@ public class LinkedList {
 		}
 		return false;
 	}
-
+	
+	public static Node deleteHead(Node head) {
+		
+		Node temp = head;
+		head  = head.next;
+		return head;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -77,15 +85,20 @@ public class LinkedList {
 		IterateLL(converArrToLinkedList);
 		System.out.println();
 		
-		int findLengthLL = findLengthLL(converArrToLinkedList);
+//		int findLengthLL = findLengthLL(converArrToLinkedList);
+//		
+//		System.out.println("The Length of LinkedList is : "+findLengthLL);
+//		
+//		boolean searchElement = searchElement(converArrToLinkedList,4);
+//		
+//		if(searchElement) {
+//			System.out.println("The Element is Prsent.....");
+//		}
 		
-		System.out.println("The Length of LinkedList is : "+findLengthLL);
+		Node deleteHead = deleteHead(converArrToLinkedList);
+		IterateLL(deleteHead);
+		System.out.println();
 		
-		boolean searchElement = searchElement(converArrToLinkedList,4);
-		
-		if(searchElement) {
-			System.out.println("The Element is Prsent.....");
-		}
 		
 	}
 
