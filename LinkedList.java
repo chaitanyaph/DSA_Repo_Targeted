@@ -75,6 +75,17 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node deleteTail(Node head) {
+		
+		Node temp = head;
+		
+		while(temp.next.next != null) {
+			
+			temp = temp.next;
+		}
+		temp.next = null;
+		return head;
+	}
 	
 	public static void main(String[] args) {
 		
@@ -98,6 +109,9 @@ public class LinkedList {
 		Node deleteHead = deleteHead(converArrToLinkedList);
 		IterateLL(deleteHead);
 		System.out.println();
+		
+		Node deleteTail = deleteTail(converArrToLinkedList);
+		IterateLL(deleteTail);
 		
 		
 	}
