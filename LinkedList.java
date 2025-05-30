@@ -168,6 +168,44 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node additionTwoLL(Node head1, Node head2) {
+		
+		Node temp1 = head1;
+		Node temp2 = head2;
+		Node dummy = new Node(-1);
+		Node curr =  dummy;
+		int carry = 0;
+		
+		while(temp1 != null || temp2 != null) {
+			
+			int sum = carry;
+			sum = sum + temp1.data;
+			sum = sum + temp2.data;
+			
+			Node newnode = new Node(sum % 10);
+			carry = sum / 10;
+			
+			curr.next = newnode;
+			curr = curr.next;
+			
+			if(temp1 != null) {
+				temp1 = temp1.next;
+			}
+			
+			if(temp2 != null) {
+				
+				temp2 = temp2.next;
+			}
+			
+			if(carry > 0) {
+				
+				Node newnode1 = new Node(carry);
+				curr.next = newnode1;
+			}
+		}
+		return dummy.next;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -205,10 +243,23 @@ public class LinkedList {
 //		Node insertAtHead = insertAtHead(converArrToLinkedList, value);
 //		IterateLL(insertAtHead);
 		
-		int value = 6;
-		Node insertAtTail = insertAtTail(converArrToLinkedList, value);
-		IterateLL(insertAtTail);
+//		int value = 6;
+//		Node insertAtTail = insertAtTail(converArrToLinkedList, value);
+//		IterateLL(insertAtTail);
 		
+		int[] crr = {2,4,6};
+		int[] brr = {3,8,7};
+		
+		Node converArrToLinkedList2 = converArrToLinkedList(crr);
+		Node converArrToLinkedList3 = converArrToLinkedList(brr);
+		
+		IterateLL(converArrToLinkedList2);
+		System.out.println();
+		IterateLL(converArrToLinkedList3);
+		System.out.println();
+		
+		Node additionTwoLL = additionTwoLL(converArrToLinkedList2, converArrToLinkedList3);
+		IterateLL(additionTwoLL);
 	}
 
 }
