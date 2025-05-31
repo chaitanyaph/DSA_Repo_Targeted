@@ -408,6 +408,24 @@ public class LinkedList {
 		
 	}
 	
+	public static Node findMiddle(Node head) {
+		
+		if(head == null) {
+			return null;
+		}
+		
+		Node slow = head;
+		Node fast = head;
+		
+		while(fast.next != null && fast.next.next != null) {
+			
+			
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -503,6 +521,12 @@ public class LinkedList {
 //		else {
 //			System.out.println("The given Linked List is not Plaindrome...");
 //		}
+		
+		int[] brr = {1,2,3,4,5};
+		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+		Node findMiddle = findMiddle(converArrToLinkedList2);
+		System.out.println(findMiddle.data);
+		
 	}
 
 }
