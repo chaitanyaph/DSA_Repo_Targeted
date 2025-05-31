@@ -349,6 +349,32 @@ public class LinkedList {
 		return prev;
 	}
 	
+	public static boolean checkPalindrome(Node head) {
+		
+		Node temp = head;
+		Stack<Integer> stack = new Stack<>();
+		
+		while(temp != null) {
+			
+			stack.push(temp.data);
+			temp = temp.next;
+		}
+		
+		temp = head;
+		
+		while(temp != null) {
+			
+			if(temp.data != stack.peek()) {
+				return false;
+			}
+			
+			stack.pop();
+			temp = temp.next;
+		}
+		return true;
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -423,8 +449,19 @@ public class LinkedList {
 //		Node reverseLL = reverseLL(converArrToLinkedList);
 //		IterateLL(reverseLL);
 		
-		Node reverseLinked = reverseLinked(converArrToLinkedList);
-		IterateLL(reverseLinked);
+//		Node reverseLinked = reverseLinked(converArrToLinkedList);
+//		IterateLL(reverseLinked);
+		
+		int[] brr = {1,2,3,2,1};
+		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+		boolean checkPalindrome = checkPalindrome(converArrToLinkedList2);
+		if(checkPalindrome) {
+			System.out.println("The given LinkedList is Plaindrome.....");
+		}
+		else {
+			
+			System.out.println("The given LinkedList is not palindrome.....");
+		}
 	}
 
 }
