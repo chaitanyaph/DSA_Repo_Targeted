@@ -276,6 +276,39 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node removeFromEnd(Node head, int position) {
+		
+		if(head == null) return null;
+		
+		Node temp = head;
+		int count = 0;
+		
+		while(temp != null) {
+			
+			count++;
+			temp = temp.next;
+		}
+		
+		temp = head;
+		int result = count - position;
+		
+		if(result == 0) {
+			head = head.next;
+			return head;
+		}
+		while(temp != null) {
+			
+			result--;
+			if(result == 0) {
+				break;
+			}
+			temp = temp.next;
+		}
+		
+		temp.next = temp.next.next;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -342,9 +375,10 @@ public class LinkedList {
 //		Node segggragrate012 = segggragrate012(converArrToLinkedList2);
 //		IterateLL(segggragrate012);
 		
-		int[] brr = {1,2,3,4,5,6};
-		Node converArrToLinkedList2 = converArrToLinkedList(brr);
-		IterateLL(converArrToLinkedList2);
+//		int[] brr = {1,2,3,4,5,6};
+//		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+//		Node removeFromEnd = removeFromEnd(converArrToLinkedList2, 6);
+//		IterateLL(removeFromEnd);
 		
 	}
 
