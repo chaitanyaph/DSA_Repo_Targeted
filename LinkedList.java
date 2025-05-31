@@ -206,6 +206,26 @@ public class LinkedList {
 		return dummy.next;
 	}
 	
+	public static Node segrregateOddEven(Node head) {
+		
+		if(head == null || head.next == null) return null;
+		
+		Node odd = head;
+		Node even = head.next;
+		Node evenHead = head.next;
+		
+		while(even != null && even.next != null) {
+			
+			odd.next = odd.next.next;
+			even.next = even.next.next;
+			
+			odd = odd.next;
+			even = even.next;
+		}
+		odd.next = evenHead;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -247,19 +267,25 @@ public class LinkedList {
 //		Node insertAtTail = insertAtTail(converArrToLinkedList, value);
 //		IterateLL(insertAtTail);
 		
-		int[] crr = {2,4,6};
-		int[] brr = {3,8,7};
+//		int[] crr = {2,4,6};
+//		int[] brr = {3,8,7};
+//		
+//		Node converArrToLinkedList2 = converArrToLinkedList(crr);
+//		Node converArrToLinkedList3 = converArrToLinkedList(brr);
+//		
+//		IterateLL(converArrToLinkedList2);
+//		System.out.println();
+//		IterateLL(converArrToLinkedList3);
+//		System.out.println();
+//		
+//		Node additionTwoLL = additionTwoLL(converArrToLinkedList2, converArrToLinkedList3);
+//		IterateLL(additionTwoLL);
 		
-		Node converArrToLinkedList2 = converArrToLinkedList(crr);
-		Node converArrToLinkedList3 = converArrToLinkedList(brr);
+		int[] brr = {1,2,3,4,5,6};
+		Node converArrToLinkedList2 = converArrToLinkedList(brr);
 		
-		IterateLL(converArrToLinkedList2);
-		System.out.println();
-		IterateLL(converArrToLinkedList3);
-		System.out.println();
-		
-		Node additionTwoLL = additionTwoLL(converArrToLinkedList2, converArrToLinkedList3);
-		IterateLL(additionTwoLL);
+		Node segrregateOddEven = segrregateOddEven(converArrToLinkedList2);
+		IterateLL(segrregateOddEven);
 	}
 
 }
