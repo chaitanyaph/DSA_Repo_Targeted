@@ -226,6 +226,56 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node segggragrate012(Node head) {
+		
+		if(head == null) return null;
+		
+		Node temp = head;
+		int count0 = 0;
+		int count1 = 0;
+		int count2 = 0;
+		
+		while(temp != null) {
+			
+			if(temp.data == 0) {
+				
+				count0++;
+			}
+			else if(temp.data == 1) {
+				
+				count1++;
+			}
+			else {
+				
+				count2++;
+			}
+			
+			temp = temp.next;
+		}
+		
+		temp = head;
+		while(temp != null) {
+			
+			if(count0 >  0) {
+				
+				temp.data = 0;
+				count0--;
+			}
+			else if(count1 > 1) {
+				
+				temp.data =1;
+				count1 --;
+			}
+			else if(count2 > 0) {
+				
+				temp.data = 2;
+				count2--;
+			}
+			temp = temp.next;
+		}
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -281,11 +331,21 @@ public class LinkedList {
 //		Node additionTwoLL = additionTwoLL(converArrToLinkedList2, converArrToLinkedList3);
 //		IterateLL(additionTwoLL);
 		
+//		int[] brr = {1,2,3,4,5,6};
+//		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+//		
+//		Node segrregateOddEven = segrregateOddEven(converArrToLinkedList2);
+//		IterateLL(segrregateOddEven);
+		
+//		int[] brr = {1,0,1,0,2,0,2,1,0,2};
+//		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+//		Node segggragrate012 = segggragrate012(converArrToLinkedList2);
+//		IterateLL(segggragrate012);
+		
 		int[] brr = {1,2,3,4,5,6};
 		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+		IterateLL(converArrToLinkedList2);
 		
-		Node segrregateOddEven = segrregateOddEven(converArrToLinkedList2);
-		IterateLL(segrregateOddEven);
 	}
 
 }
