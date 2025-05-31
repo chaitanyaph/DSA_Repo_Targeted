@@ -375,6 +375,39 @@ public class LinkedList {
 		
 	}
 	
+	public static boolean checkingPalindrome(Node head) {
+		
+		//there are three steps 
+		//1)find the middle using Tortoise & Hare's Algorithm
+		//2)Reversing the Linked List
+		//3)Comparing the LL
+		//Lets go......
+		
+		Node slow = head;
+		Node fast = head;
+		
+		while(fast.next != null && fast.next.next != null) {
+			
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		
+		Node newHead = reverseLinked(slow.next);
+		Node first = head;
+		Node second = newHead;
+		
+		while(first != null && second != null) {
+			
+			if(first.data != second.data) return false;
+			
+			first = first.next;
+			second = second.next;
+		}
+		reverseLinked(newHead);
+		return true;
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -452,16 +485,24 @@ public class LinkedList {
 //		Node reverseLinked = reverseLinked(converArrToLinkedList);
 //		IterateLL(reverseLinked);
 		
-		int[] brr = {1,2,3,2,1};
-		Node converArrToLinkedList2 = converArrToLinkedList(brr);
-		boolean checkPalindrome = checkPalindrome(converArrToLinkedList2);
-		if(checkPalindrome) {
-			System.out.println("The given LinkedList is Plaindrome.....");
-		}
-		else {
-			
-			System.out.println("The given LinkedList is not palindrome.....");
-		}
+//		int[] brr = {1,2,3,4,2,1};
+//		Node converArrToLinkedList2 = converArrToLinkedList(brr);
+//		boolean checkPalindrome = checkPalindrome(converArrToLinkedList2);
+//		if(checkPalindrome) {
+//			System.out.println("The given LinkedList is Plaindrome.....");
+//		}
+//		else {
+//			
+//			System.out.println("The given LinkedList is not palindrome.....");
+//		}
+		
+//		boolean checkingPalindrome = checkingPalindrome(converArrToLinkedList2);
+//		if(checkingPalindrome) {
+//			System.out.println("The Given Linked List is Palindrome.....");
+//		}
+//		else {
+//			System.out.println("The given Linked List is not Plaindrome...");
+//		}
 	}
 
 }
