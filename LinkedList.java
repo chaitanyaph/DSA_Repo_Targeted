@@ -1,5 +1,7 @@
 package com.linkedlist;
 
+import java.util.Stack;
+
 class Node {
 	
 	int data;
@@ -309,6 +311,44 @@ public class LinkedList {
 		return head;
 	}
 	
+	public static Node reverseLL(Node head) {
+		
+		Node temp = head;
+		Stack<Integer> stack = new Stack<>();
+		
+		while(temp != null) {
+			
+			stack.push(temp.data);
+			temp = temp.next;
+		}
+		
+		temp = head;
+		
+		while(temp != null) {
+			
+			temp.data = stack.peek();
+			stack.pop();
+			temp = temp.next;
+		}
+		return head;
+	}
+	
+	public static Node reverseLinked(Node head) {
+		
+		Node temp = head;
+		Node prev = null;
+		
+		
+		while(temp != null) {
+			
+			Node front = temp.next;
+			temp.next = prev;
+			prev = temp;
+			temp = front;
+		}
+		return prev;
+	}
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {1,2,3,4,5};
@@ -380,6 +420,11 @@ public class LinkedList {
 //		Node removeFromEnd = removeFromEnd(converArrToLinkedList2, 6);
 //		IterateLL(removeFromEnd);
 		
+//		Node reverseLL = reverseLL(converArrToLinkedList);
+//		IterateLL(reverseLL);
+		
+		Node reverseLinked = reverseLinked(converArrToLinkedList);
+		IterateLL(reverseLinked);
 	}
 
 }
